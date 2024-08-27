@@ -1,6 +1,6 @@
 import { useState} from 'react';
 import JobListing from './JobListing';
-
+import jobs from "../jobs.json"
 
 const JobListings = ({ isHome = false }) => {
 
