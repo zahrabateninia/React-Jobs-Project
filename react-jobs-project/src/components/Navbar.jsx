@@ -21,13 +21,13 @@ const Navbar = () => {
             </a>
             <div className='md:ml-auto'>
               <div className='flex space-x-2'>
-                <a href='' >
+                <a href='/' >
                   Home
                 </a>
-                <a href='' >
+                <a href='/jobs' >
                   Jobs
                 </a>
-                <a href=''>
+                <a href='/add-job'>
                   Add Job
                 </a>
               </div>
