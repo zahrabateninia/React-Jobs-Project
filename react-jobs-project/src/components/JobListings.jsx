@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react';
 import JobListing from './JobListing';
-// Make a request to fetch the data from json server:
+// npm i react-spinners in order to use the package:
+import 
 
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([])
