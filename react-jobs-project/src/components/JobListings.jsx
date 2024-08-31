@@ -22,7 +22,7 @@ const JobListings = ({ isHome = false }) => {
 
     }
   })
-
+ 
   
   return (
     <section className='bg-blue-50 px-4 py-10'>
@@ -31,9 +31,13 @@ const JobListings = ({ isHome = false }) => {
           {isHome ? 'Recent Jobs' : 'Browse Jobs'}
         </h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-            {jobs.map((job) => (
+            { loading ? (<h2>Loading...</h2>) : (
+              <>
+              {jobs.map((job) => (
               <JobListing key={job.id} job={job} />
             ))}
+              </>
+            )}
           </div>
       </div>
     </section>
