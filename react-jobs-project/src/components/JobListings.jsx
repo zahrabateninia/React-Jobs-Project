@@ -1,29 +1,29 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import JobListing from './JobListing';
-// npm i react-spinners in order to use the package:
-import Spinner from "./Spinner"
+import Spinner from './Spinner';
 
 const JobListings = ({ isHome = false }) => {
-  const [jobs, setJobs] = useState([])
-  // to show spinner when fetching data we need loading
-  const [loading, setLoading] = useState(true)
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect takes a function and a dependency array:
-  useEffect(()=>{
-    const fetchData = async () => {
-        try {
-            const res = await fetch("http://localhost:8000/jobs")
-            const data = await res.json()
-            setJobs()
-        } catch (error) {
-            console.log("Error fetching data", error)
-        }finally{
-          setLoading(false)  
-        }
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const apiUrl = isHome 
+      ?  "http://localhost:8000/jobs?_limit=3"
+      :  "http://localhost:8000/jobs";
+      try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        setJobs(data);
+      } catch (error) {
+        console.log('Error fetching data', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    }
-  })
- 
+    fetchJobs();
+  }, []);
   
   return (
     <section className='bg-blue-50 px-4 py-10'>
