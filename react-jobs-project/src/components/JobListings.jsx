@@ -9,8 +9,8 @@ const JobListings = ({ isHome = false }) => {
   useEffect(() => {
     const fetchJobs = async () => {
       const apiUrl = isHome 
-      ?  "http://localhost:8000/jobs?_limit=3"
-      :  "http://localhost:8000/jobs";
+      ?  "/api/jobs?_limit=3"
+      :  "/api/jobs";
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
@@ -46,3 +46,6 @@ const JobListings = ({ isHome = false }) => {
   );
 };
 export default JobListings;
+
+// My Notes:
+// When I deploy this project it's no longer on http://localhost:8000 so I need to create a proxy.
