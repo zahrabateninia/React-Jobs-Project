@@ -1,10 +1,11 @@
 import React from 'react'
 // import {useEffect, useState} from 'react'
-import { useParams, useLoaderData } from 'react-router-dom'
+import { useParams, useLoaderData, useNavigate } from 'react-router-dom'
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const JobPage = ({deleteJob}) => { // pass deleteJob function as prop
+  const navigate = useNavigate()
   const { id } = useParams()
   const job = useLoaderData()
 
@@ -14,6 +15,8 @@ const JobPage = ({deleteJob}) => { // pass deleteJob function as prop
     if(!confirm) return;
 
     deleteJob(jobId)
+
+    navigate('/jobs')
   }
 
   // Fetching Data Using useEffect: 
