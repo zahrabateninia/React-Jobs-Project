@@ -4,11 +4,19 @@ import { useParams, useLoaderData } from 'react-router-dom'
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const JobPage = () => {
+const JobPage = ({deleteJob}) => { // pass deleteJob function as prop
   const { id } = useParams()
   const job = useLoaderData()
-  
-// Fetching Data Using useEffect: 
+
+  const onDeleteClick = (jobId) =>{
+    const confirm = window.confirm("Are you sure you want to delete this listing?")
+
+    if(!confirm) return;
+
+    deleteJob(jobId)
+  }
+
+  // Fetching Data Using useEffect: 
 
 //   const [job, setJob] = useState(null)
 //   const [loading, setLoading] = useState(true)
