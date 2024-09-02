@@ -13,10 +13,18 @@ import JobPage, {jobLoader} from "./pages/JobPage"
 import AddJobPage from './pages/AddJobPage';
 
 const App = () => {
-  // Add job
-  const addJob = (newJob) =>{
-    console.log(newJob)
-  }
+    // Add job
+    const addJob = async (newJob) => {
+      const res = await fetch('/api/jobs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newJob),
+      });
+      return;
+    };
+
     const router = createBrowserRouter(
       createRoutesFromElements(
         <Route path='/' element={<MainLayout />}>
