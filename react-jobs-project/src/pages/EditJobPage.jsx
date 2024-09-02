@@ -23,7 +23,7 @@ const EditJobPage = ({ updateJobSubmit }) => {
     e.preventDefault();
 
     const updatedJob = {
-      id,
+      id, // use params to get the job's id
       title,
       type,
       location,
