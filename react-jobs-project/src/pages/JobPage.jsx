@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const JobPage = () => {
   const { id } = useParams()
   const job = useLoaderData()
-
+  
 // Fetching Data Using useEffect: 
 
 //   const [job, setJob] = useState(null)
